@@ -1,7 +1,8 @@
 <?php
 	define( '_VALID_SXR', 1 );
 	error_reporting(0);
-	if (file_exists("cfg.php")) {include "cfg.php";} else {include "cfg-dist.php";}
+	include "cfg-dist.php";
+	if (file_exists("cfg.php")) include "cfg.php";
 	include "lib.php";
 	include "authn.php";
 
@@ -149,6 +150,11 @@
 				PHP zlib extension -
 				<?php if(function_exists('gzopen')) echo 'installed';
 				else echo '<strong>Not installed</strong>'; ?>
+		</td></tr>
+		<tr><th colspan=2><div>File listing</div></th></tr>
+		<tr><td>Hidden files</td><td>
+			<input type=radio name="cfg[showhidden]" value=0<?php echo $cfg["showhidden"]==0?" checked":""; ?>>hide&nbsp;&nbsp;&nbsp;
+			<input type=radio name="cfg[showhidden]" value=1<?php echo $cfg["showhidden"]==1?" checked":""; ?>>show
 		</td></tr>
 	</table>
 	</div>

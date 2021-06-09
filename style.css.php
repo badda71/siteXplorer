@@ -1,7 +1,8 @@
 <?php
 	define( '_VALID_SXR', 1 );
 	error_reporting(0);
-	if (file_exists("cfg.php")) {include "cfg.php";} else {include "cfg-dist.php";}
+	include "cfg-dist.php";
+	if (file_exists("cfg.php")) include "cfg.php";
 	header("Content-type: text/css");
 ?>
 /* <style> */

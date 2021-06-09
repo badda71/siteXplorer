@@ -1,7 +1,8 @@
 <?php
 	define( '_VALID_SXR', 1 );
 	error_reporting(0);
-	include "cfg.php";
+	include "cfg-dist.php";
+	if (file_exists("cfg.php")) include "cfg.php";
 	include "lib.php";
 	include "authn.php";
 

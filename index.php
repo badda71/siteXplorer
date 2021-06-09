@@ -22,23 +22,24 @@ v1.1
 		Command textbox more pretty
 
 TODOs
-	Store settings per direcory (view,order)
-	Framework support
-		php functions with prefix
-		javascript functions with prefix
-	more views (tiles, list)
+	users and authorizations (no access, read only, read/write)
+	more previews, not just images
 	search (needs own page for results etc.)
+	more views (tiles, list)
+	status bar and toolbar always visible, list area resizeable
 */
 	// autoconfig
 	define( '_VALID_SXR', 1 );
+	include "cfg-dist.php";
 	if (file_exists("cfg.php")) {
 		include "cfg.php";
 	} else {
-		if ($_REQUEST['action']!="saveprefs") $firststart=true;
-		include "cfg-dist.php";
+		if (array_key_exists('action', $_REQUEST) && $_REQUEST['action']!="saveprefs") $firststart=true;
 	}
 	include "lib.php";
 	include "authn.php";
+
+//echo "<pre>";print_r($cfg);echo "</pre>";
 	if (array_key_exists('action', $_REQUEST) && $_REQUEST['action']=="saveprefs" && sxr_chkdemo("Modify Preferences")) {
 		if (!$_REQUEST['cfg']['user']) $_REQUEST['cfg']['pass']=$cfg['pass']=""; // clear password if uname is empty
 		if ($_REQUEST['cfg']['pass'] || !$cfg['pass']) { // set new password
@@ -52,13 +53,20 @@ TODOs
 		fwrite($f,"?".">\n");
 		fclose($f);
 		$_REQUEST['action']=="";
+
+		// reload config
 		unset ($cfg,$key);
+		include "cfg-dist.php";
 		include "cfg.php";
 		setcookie("login_username", $cfg['user']);
 	}
 	if (array_key_exists('action', $_REQUEST) && $_REQUEST['action']=="clearcache") {
-		sxr_delete("thumbs");
-		echo "OK";
+		if (sxr_chkdemo("Clear Cache")) {
+			sxr_delete("thumbs");
+			echo "OK";
+		} else {
+			echo $errmsg;
+		}
 		exit;
 	}
 	# functions
@@ -254,9 +262,9 @@ TODOs
 	$cb_action=$_SESSION['cb_action'];
 	$cb_path=$_SESSION['cb_path'];
 	$cb_files=$_SESSION['cb_files'];
-	
+
 	if ($cfg["enablecache"]) sxr_cleancache();
-	
+
 	$a=array();
 	$m="'^(".join("|",$image_ext[$cfg["tnmethod"]]).")$'";
 	foreach ($mimes as $k => $v) if (preg_match($m,$v)) $a[]=$k;
@@ -509,6 +517,7 @@ src="img/tool_prefs.gif"  id="icpre" title="Preferences<?php echo $key["prefs"]?
 		if (is_dir($file)) {
 			if ($file==".") continue;
 			if ($file==".." && $curdir=="" && count($dir)>2) continue;
+			if ($cfg["showhidden"]==0 && preg_match('/^\.+[^\.]/',$file)) continue;
 			$fd[]=$files[$count]['d']=1;
 			$ft[]=$files[$count]['t']="File Folder";
 			$files[$count]['i']=$folder_icon;

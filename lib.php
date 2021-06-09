@@ -4,7 +4,7 @@ defined( '_VALID_SXR' ) or die( 'Direct Access to this location is not allowed!'
 # advanced CONFIG
 
 // demo mode? In demo mode, all writes to the filesystem are prohibted
-$demo_mode=true;
+if (file_exists("demo_mode")) $demo_mode=true;
 
 // zip commandos (if enabled)
 $unzipcom='unzip -o @ZIPFILE@';

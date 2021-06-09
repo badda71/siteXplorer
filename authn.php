@@ -1,25 +1,23 @@
 <?php
 defined( '_VALID_SXR' ) or die( 'Direct Access to this location is not allowed!' );
+if (array_key_exists("user",$cfg) && $cfg["user"]) {
+$msg=$me="";
+$login_username=array_key_exists('login_username', $_REQUEST)?$_REQUEST['login_username']:(array_key_exists('login_username', $_COOKIE)?$_COOKIE['login_username']:"");
+$login_password=array_key_exists('login_password', $_REQUEST)?$_REQUEST['login_password']:(array_key_exists('login_password', $_COOKIE)?$_COOKIE['login_password']:"");
 
-if ($cfg["user"]) {
-$login_username=$_REQUEST['login_username'];
-$login_password=$_REQUEST['login_password'];
-
-if (isset($login_username)) {
+if ($login_username) {
 	$me=$login_username;
 	if (strcmp($login_username,$cfg["user"])!=0 || strcmp(md5($login_password),$cfg["pass"])!=0) {
-		unset($me);
+		$me="";
 		$msg="Falscher Benutzername oder Passwort";
 	}
 }
 
-if ($_REQUEST["action"]=="logout" || !$me) {
+if ((array_key_exists('action', $_REQUEST) && $_REQUEST["action"]=="logout") || !$me)	 {
 	// destroy the authentication cookie
-	if (isset($_COOKIE["login_username"])) setcookie("login_username", '', time()-42000);
-	if (isset($_COOKIE["login_password"])) setcookie("login_password", '', time()-42000);
-	unset($login_username);
-	unset($login_password);
-	unset($me);
+	setcookie("login_username", '', time()-42000);
+	setcookie("login_password", '', time()-42000);
+	$login_username=$login_password=$me="";
 }
 
 if (!$me) {
@@ -57,7 +55,7 @@ if (!$me) {
 	exit();
 
 } else if ($_REQUEST["action"]=="login") {
-	if ($_REQUEST["staylogged"]=="yes") {
+	if (array_key_exists("staylogged", $_REQUEST) && $_REQUEST["staylogged"]=="yes") {
 		setcookie("login_username", $login_username, time()+60*60*24*365*10);
 		setcookie("login_password", $login_password, time()+60*60*24*365*10);
 	} else {
