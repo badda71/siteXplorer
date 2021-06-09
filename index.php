@@ -5,29 +5,8 @@
 ===============
 copyright 2008 by Sebastian Weber <webersebastian@yahoo.de>
 This software is licensed under the GNU general public license http://www.gnu.org/copyleft/gpl.html
-http://sitexplorer.sourceforge.net
+http://sitexplorer.badda.de
 
-RELEASE NOTES:
-v1.0
-	Initial Release
-
-v1.1
-	Most Javascript moved into a static file
-	Filmstrip view & Zoom - already viewed images are cached for performance
-	Zoom available for all views
-	Prefs: New Button to clear thumbnail cache and all stored settings
-	Small changes:
-		Toolbar button onmouseup works now
-		Files without "." should be Type "File"
-		Command textbox more pretty
-
-TODOs
-	make login & credential handling more secure (e.g. no plaintext password in every request)
-	users and authorizations (no access, read only, read/write)
-	more previews, not just images
-	search (needs own page for results etc.)
-	more views (tiles, list)
-	status bar and toolbar always visible, list area resizeable
 */
 	// autoconfig
 	define( '_VALID_SXR', 1 );
@@ -418,7 +397,7 @@ TODOs
 <div>siteXplorer v1.1</div>
 &copy;2008 by Sebastian Weber &lt;<a href="mailto:websersebastian@yahoo.de">webersebastian@yahoo.de</a>><br>
 This software is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html" target="_new">GNU general public license</a><br>
-Website <a target="_new" href="http://sitexplorer.sourceforge.net">sitexplorer.sourceforge.net</a></div>
+Website <a target="_new" href="http://sitexplorer.badda.de">sitexplorer.badda.de</a></div>
 </td><td bgcolor=#BDBDBD></td></tr><tr><td><img src=img/win_bl.gif></td><td bgcolor=#BDBDBD></td><td><img src=img/win_br.gif></td></tr></table>
 
 <table id=f_prefs border=0 cellpadding=0 cellspacing=0><tr><td><img src=img/win_tl.gif></td><td style='background:#BDBDBD url(img/img_close.gif) no-repeat scroll top right;color:#4F4F4F;cursor:pointer' onclick="ca_prefs()" align=left><img src=img/img_prefs16.gif style='margin-right:6px' align=absmiddle>SiteXplorer - Preferences</td><td><img src=img/win_tr.gif></td></tr><tr><td bgcolor=#BDBDBD></td><td style='border:1px solid white'>
