@@ -1,5 +1,7 @@
 <?php
 $cfg["root_path"]=preg_replace("/\\\\/","/",getcwd())."/files";
+$cfg["user"]="";
+$cfg["pass"]="";
 $cfg["thumb_max_x"]="94";
 $cfg["thumb_max_y"]="94";
 $cfg["enablecache"]="1";

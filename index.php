@@ -22,6 +22,7 @@ v1.1
 		Command textbox more pretty
 
 TODOs
+	make login & credential handling more secure (e.g. no plaintext password in every request)
 	users and authorizations (no access, read only, read/write)
 	more previews, not just images
 	search (needs own page for results etc.)
@@ -31,6 +32,8 @@ TODOs
 	// autoconfig
 	define( '_VALID_SXR', 1 );
 	include "cfg-dist.php";
+	$defcfg = $cfg;
+	$defkey = $key;
 	if (file_exists("cfg.php")) {
 		include "cfg.php";
 	} else {
@@ -42,14 +45,20 @@ TODOs
 //echo "<pre>";print_r($cfg);echo "</pre>";
 	if (array_key_exists('action', $_REQUEST) && $_REQUEST['action']=="saveprefs" && sxr_chkdemo("Modify Preferences")) {
 		if (!$_REQUEST['cfg']['user']) $_REQUEST['cfg']['pass']=$cfg['pass']=""; // clear password if uname is empty
-		if ($_REQUEST['cfg']['pass'] || !$cfg['pass']) { // set new password
+		if ($_REQUEST['cfg']['pass']) { // set new password
 			setcookie("login_password", $_REQUEST['cfg']['pass']);
 			$_REQUEST['cfg']['pass']=md5($_REQUEST['cfg']['pass']);
 		} else $_REQUEST['cfg']['pass']=$cfg['pass'];
 		$f=fopen("cfg.php","w");
 		fwrite($f,"<?php\n");
-		foreach ($_REQUEST['cfg'] as $k => $v) fwrite($f,"\$cfg[\"$k\"]=\"$v\";\n");
-		foreach ($_REQUEST['key'] as $k => $v) fwrite($f,"\$key[\"$k\"]=\"$v\";\n");
+		foreach ($_REQUEST['cfg'] as $k => $v) {
+			if (!array_key_exists($k, $defcfg) || $defcfg[$k] != $v)
+				fwrite($f,"\$cfg[\"$k\"]=\"$v\";\n");
+		}
+		foreach ($_REQUEST['key'] as $k => $v) {
+			if (!array_key_exists($k, $defkey) || $defkey[$k] != $v)
+				fwrite($f,"\$key[\"$k\"]=\"$v\";\n");
+		}
 		fwrite($f,"?".">\n");
 		fclose($f);
 		$_REQUEST['action']=="";

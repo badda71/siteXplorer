@@ -7,7 +7,7 @@ $login_password=array_key_exists('login_password', $_REQUEST)?$_REQUEST['login_p
 
 if ($login_username) {
 	$me=$login_username;
-	if (strcmp($login_username,$cfg["user"])!=0 || strcmp(md5($login_password),$cfg["pass"])!=0) {
+	if (strcmp($login_username,$cfg["user"])!=0 || ($cfg["pass"]!="" && strcmp(md5($login_password),$cfg["pass"])!=0)) {
 		$me="";
 		$msg="Falscher Benutzername oder Passwort";
 	}
