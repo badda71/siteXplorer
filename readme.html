@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head><title>SiteXplorer Readme</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="StyleSheet" href="style.css.php">
+<style>
+#main a {
+	color:			#0000ff;
+	vertical-align:	bottom;
+}
+#main {
+	margin:10px;
+	width: auto;
+}
+</style>
+<script>
+	function ac_about() {
+		document.getElementById("back").style.display="block";
+		document.getElementById("f_about").style.display="block";}
+	function ca_about() {
+		document.getElementById("f_about").style.display="none";
+		document.getElementById("back").style.display="none";}	
+</script>
+</head>
+<body id=body style="margin:0px">
+<!-- Popup Windows and utility layers -->
+<div id=back></div>
+
+<table id=f_about border=0 cellpadding=0 cellspacing=0><tr><td><img src=img/win_tl.gif></td><td style='background:#BDBDBD url(img/img_close.gif) no-repeat scroll top right;color:#4F4F4F;cursor:pointer' onclick="ca_about()" align=left><img src=img/img_logo16.gif style='margin-right:6px' align=absmiddle>SiteXplorer - About</td><td><img src=img/win_tr.gif></td></tr><tr><td bgcolor=#BDBDBD></td><td style='border:1px solid white'>
+<div id=about><img onClick="ca_about()" src=img/img_logo.gif>
+<div>siteXplorer v1.1</div>
+&copy;2008 by Sebastian Weber &lt;<a href="mailto:websersebastian@yahoo.de">webersebastian@yahoo.de</a>><br>
+This software is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html" target="_new">GNU general public license</a><br>
+Website <a target="_new" href="http://sitexplorer.sourceforge.net">sitexplorer.sourceforge.net</a></div>
+</td><td bgcolor=#BDBDBD></td></tr><tr><td><img src=img/win_bl.gif></td><td bgcolor=#BDBDBD></td><td><img src=img/win_br.gif></td></tr></table>
+
+<!-- Toolbar -->
+<table id=head>
+<tr><td colspan=2 class=toolbar><table width=100% cellpadding=0 cellspacing=0 border=0><tr><td><img class=tbbut
+src="img/tool_dirup_bw.gif" title="Up (Alt-Up Arrow)"><img
+src="img/tool_sep.gif"><img class=tbbut
+src="img/tool_upload.gif" title="Upload Files (Ctrl-U)" id="icul"><img class=tbbut
+src="img/tool_download_bw.gif" title="Download Files as ZIP (Ctrl-L)" id="icdl"><img class=tbbut
+src="img/tool_newfolder.gif" title="New Folder (Ctrl-F)"><img class=tbbut
+src="img/tool_extract_bw.gif" title="Extract Zipfile (Ctrl-Z)" id="icext"><img
+src="img/tool_sep.gif"><img class=tbbut
+src="img/tool_selectall.gif" title="Select All (Ctrl-A)" id="icsa"><img class=tbbut
+src="img/tool_invsel.gif" title="Invert Selection (Shift-A)"><img class=tbbut
+src="img/tool_rename_bw.gif" title="Rename (F2)" id="icren"><img class=tbbut
+src="img/tool_chmod_bw.gif" title="Change Permissions (Ctrl-M)" id="icchm"><img class=tbbut
+src="img/tool_delete_bw.gif" title="Delete (Delete)" id="icdel"><img class=tbbut
+src="img/tool_cut_bw.gif"  id="iccut" title="Cut (Ctrl-X)"><img class=tbbut
+src="img/tool_copy_bw.gif"  id="iccpy" title="Copy (Ctrl-C)"><img class=tbbut
+src="img/tool_paste_bw.gif"  id="icpst" title="Paste (Ctrl-V)"><img
+src="img/tool_view.gif" title="Views"><select name=view title="Views">
+<option value="s">Filmstrip (Ctrl-S)</option>
+<option value="t">Thumbnails (Ctrl-T)</option>
+<option value="i">Icons (Ctrl-I)</option>
+<option value="d" selected>Details (Ctrl-D)</option>
+</select><img
+src="img/tool_sep.gif"><img class=tbbut
+src="img/tool_run.gif" title="Run Command (Ctrl-O)"> <input type="text" name="command"><img
+src="img/tool_sep.gif"><img class=tbbut
+src="img/tool_prefs.gif"  id="icpre" title="Preferences (Ctrl-P)">
+</td><td><img class=tbbut src="img/tool_logout.gif" id="lclog" title="Logout (Alt-X)"></td></tr></table></td>
+<td rowspan=2 valign=top id=logo><img src="img/img_logo.gif" alt="SiteXplorer - About" onClick="ac_about()"></td></tr>
+<!-- Address Bar -->
+
+<tr><td class=a1>Address</td><td class=a2><div class=a2>
+
+<img class=icon16 src="img/icon_folder16.gif"> <a id=a href='#'>root</a></div>
+</td></tr></table>
+
+<table id=main align=center border=0 cellpadding=0 cellspacing=0><tr><td><img src=img/win_tl.gif></td><td style='background:#BDBDBD url(img/img_close.gif) no-repeat scroll top right;color:#4F4F4F' align=left><img src=img/img_logo16.gif style='margin-right:6px' align=absmiddle>SiteXplorer - Readme</td><td><img src=img/win_tr.gif></td></tr><tr><td bgcolor=#BDBDBD></td><td style='border:1px solid white;background:#EBEADB;width:100%;padding:10px'>
+<div style="font-size:20px;font-weight:bold;margin-bottom:10px;">siteXplorer v1.1</div>
+&copy;2008 by Sebastian Weber &lt;<script>document.write('<a href="mailto:'+'weberse');
+					document.write('bastian'+'@'+'yahoo');
+					document.write('.de">weberse');
+					document.write('bastian'+'@'+'yahoo');
+					document.write('.de</a>');</script>><br>
+This software is licensed under the <a href="http://www.gnu.org/copyleft/gpl.html" target="_new">GNU general public license</a><br>
+<hr width="90%">
+<h3>About</h3>
+SiteXplorer is a very flexible and small PHP and Javascript based file management system for websites with many features. It allows website admins to manage the files on a website as if using Windows Explorer. Features include:
+<ul>
+<li>Multiple views: Details, Icons, Thumbnails, Filmstrip
+<li>Upload multiple files, Upload/extract Zip-archives
+<li>Download of whole directory structures (zipped)
+<li>Cut/Copy/Paste Files
+<li>Completely keyboard-manageable, usable even without the mouse
+<li>Views / handling as close to Windows Exporer as possible
+</ul>
+<a href="index.php">Click here the get to the SiteXplorer demo installation.</a>
+<h3>Download</h3>
+Current version of SiteXplorer is 1.1<br><br>
+<a href="http://sourceforge.net/project/showfiles.php?group_id=203013&package_id=241844"><img align=middle style="" src="img/tool_download.gif"> Download SiteXplorer from Sourceforge.net</a><br><br>
+<h3>Installation</h3>
+To install SiteXplorer, extract the archive to a directory of your choice on your PHP-enabled webserver and point your browser to index.php. During first startup, you will have to configure SiteXplorer. Configuration options are pretty straightforward and self-explanatory. If you're lost, leave the default.
+<h3>Feedback</h3>
+Any kind of feedback is appreciated. I'm interested in bug reports but also success stories.
+As the SiteXplorer project is hosted by Sourceforge.net, all feedback mechanisms are provided by them:<br>
+
+<ul>
+<li><a href="http://sourceforge.net/tracker/?func=add&group_id=203013&atid=983886" target="_new">
+Submit a Bug Report</a><br>&nbsp;
+<li><a href="http://sourceforge.net/tracker/?func=add&group_id=203013&atid=983889" target="_new">
+Submit a Feature Request</a><br>&nbsp;
+<li><a href="http://sourceforge.net/forum/?group_id=203013" target="_new">
+View and participate in the SiteXplorer forums</a><br>&nbsp;
+<li><script>document.write('<a href="mailto:'+'weberse');
+			document.write('bastian'+'@'+'yahoo');
+			document.write('.de">');</script>Contact the author directly</a>
+</ul>
+<h3>Release Notes</h3>
+<pre>
+f	Bug fixed
+c	Change of existing functionality
++	Added new functionality
+-	Removed functionality
+
+*1.1* 30.03.2008 Sebastian Weber
+c   Most javascript moved into a static file
++   Filmstrip view & zoom - already viewed images are cached for performance
++   Zoom available for all views
++   Preferences: New Button to clear thumbnail cache and all stored settings
+f   Toolbar button onmouseup works now
+f   Files without "." are now type "File"
+c   Command textbox text
+
+*1.0* 20.03.2008 Sebastian Weber
++   Initial release
+</td><td bgcolor=#BDBDBD></td></tr><tr><td><img src=img/win_bl.gif></td><td bgcolor=#BDBDBD></td><td><img src=img/win_br.gif></td></tr></table>
+
+	<table id=foot><tr>
+	<td width=100%>12 objects (Disk free space: 191 GB)</td>
+		<td align=right>87.5 KB</td>
+		<td align=right>Windows NT BADDA 5.1 build 2600</td>	</tr></table>
+</body>
+
+</html>
